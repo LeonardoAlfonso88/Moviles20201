@@ -1,0 +1,21 @@
+  version: '3'
+  services:
+    web:
+      container_name: appGestionTiendasWeb
+      build:
+        context: ./
+        dockerfile: web.docker
+      volumes:
+        - ./:/var/www
+      ports:
+        - "8000:80"
+      links:
+        - app
+    app:
+      container_name: appGestionTiendasApp
+      build:
+        context: ./
+        dockerfile: app.docker
+      volumes:
+        - ./:/var/www
+        - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
