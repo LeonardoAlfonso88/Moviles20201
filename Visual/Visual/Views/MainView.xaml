@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Visual.Converters;assembly=Visual"
+             xmlns:components="clr-namespace:Visual.VisualComponents;assembly=Visual"
+             mc:Ignorable="d"
+             x:Class="Visual.Views.MainView"
+             NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:PriceConverter x:Key="PriceConverter"/>
+            <converters:IsVisibleConverter x:Key="IsVisibleConverter"/>
+
+            <Style TargetType="Label" x:Key="LabelList">
+                <Setter Property="TextColor" Value="#FFFFFF"></Setter>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fsoccer%2F500%2F83.png" Scale="0.6"
+                                           VerticalOptions="Start" IsVisible="{Binding ImagenVisible, Converter={StaticResource IsVisibleConverter}}"></Image>
+            <!--<ListView ItemsSource="{Binding Nombres}" HasUnevenRows="True" SeparatorVisibility="None" SelectedItem="{Binding TestActual}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="DarkMagenta" Margin="0" Padding="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Start" Margin="0,20">
+                                        <Label Text="{Binding Nombre, StringFormat='Nombre: {0}'}" Style="{StaticResource LabelList}"></Label>
+                                        <Label Text="{Binding Edad, StringFormat='Edad : {0}'}" Style="{StaticResource LabelList}"></Label>
+                                        <Label Text="{Binding Correo, StringFormat='E-Mail : {0}'}" Style="{StaticResource LabelList}"></Label>
+                                        <Label Text="{Binding Sueldo, Converter={StaticResource PriceConverter}}" Style="{StaticResource LabelList}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Enviar Usuario" Command="{Binding SeleccionarUsuarioCommand}"></Button>-->
+            <components:CustomListView ItemsSource="{Binding Nombres}" HasUnevenRows="True" SeparatorVisibility="None" 
+                                       ItemClickCommand="{Binding RecibirUsuarioSeleccionadoCommand}">
+                <components:CustomListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="DarkMagenta" Margin="0" Padding="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Start" Margin="0,20">
+                                        <Label Text="{Binding Nombre, StringFormat='Nombre: {0}'}" Style="{StaticResource LabelList}"></Label>
+                                        <Label Text="{Binding Edad, StringFormat='Edad : {0}'}" Style="{StaticResource LabelList}"></Label>
+                                        <Label Text="{Binding Correo, StringFormat='E-Mail : {0}'}" Style="{StaticResource LabelList}"></Label>
+                                        <Label Text="{Binding Sueldo, Converter={StaticResource PriceConverter}}" Style="{StaticResource LabelList}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </components:CustomListView.ItemTemplate>
+            </components:CustomListView>
+            <Frame Margin="20">
+                <StackLayout>
+                    <Label Text="{Binding TestActual.Nombre, StringFormat='Nombre: {0}'}"></Label>
+                    <Label Text="{Binding TestActual.Edad, StringFormat='Edad : {0}'}"></Label>
+                </StackLayout>
+            </Frame>
+            <Button Text="Ir al formulario" Command="{Binding IrFormularioCommand}"></Button>
+        
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

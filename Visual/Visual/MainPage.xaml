@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:Visual.VisualComponents;assembly=Visual"
+             mc:Ignorable="d"
+             x:Class="Visual.MainPage"
+             Style="{StaticResource Main}"
+             NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <Style TargetType="ContentPage" x:Key="Main">
+                <Setter Property="BackgroundColor" Value="AliceBlue"></Setter>
+            </Style>
+            
+            <!--<Style TargetType="Label" x:Key="LabelStyleOne">
+                <Setter Property="TextColor" Value="DarkGreen"></Setter>
+                <Setter Property="FontSize" Value="30"></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyleTwo">
+                <Setter Property="BackgroundColor" Value="Azure"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="Margin" Value="10,20,30,40"></Setter>
+            </Style>-->
+
+            <Style TargetType="Button" x:Key="ButtonStyleOne">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="BackgroundColor" Value="Azure"></Setter>
+                <Setter Property="Padding" Value="2"></Setter>
+                <Setter Property="Margin" Value="0, 20"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="WrapperTitulo">
+                <Setter Property="Margin" Value="0,20"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="Orientation" Value="Vertical"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyleOne">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+
+            <Style TargetType="BoxView" x:Key="BoxStyleOne">
+                <Setter Property="HeightRequest" Value="5"></Setter>
+                <Setter Property="BackgroundColor" Value="DarkBlue"></Setter>
+                <Setter Property="CornerRadius" Value="25"></Setter>
+            </Style>
+
+            <Style TargetType="Frame" x:Key="FrameStyleOne">
+                <Setter Property="BackgroundColor" Value="Aquamarine"></Setter>
+                <Setter Property="HasShadow" Value="True"></Setter>
+                <Setter Property="Padding" Value="10,20"></Setter>
+                <Setter Property="Margin" Value="40"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+
+            <Style TargetType="Image" x:Key="ImageStyleOne">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <!--<Setter Property="HeightRequest" Value="300"></Setter>
+                <Setter Property="WidthRequest" Value="500"></Setter>-->
+                <Setter Property="Scale" Value="1.2 "></Setter>
+            </Style>
+
+            <Style TargetType="ImageButton" x:Key="ImageButtonStyleOne">
+                <Setter Property="Margin" Value="20"></Setter>
+                <Setter Property="Padding" Value="20"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="BackgroundColor" Value="ForestGreen"></Setter>
+                <Setter Property="Scale" Value="0.5">   </Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyleFour">
+                <Setter Property="TextColor" Value="Gray"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <!--<StackLayout Style="{StaticResource WrapperTitulo}">
+                <Label Text="Mi primera App" Style="{StaticResource LabelStyleOne}"></Label>
+                <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
+            </StackLayout>
+            <BoxView BackgroundColor="Accent" CornerRadius="15" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"></BoxView>
+            <Frame Style="{StaticResource FrameStyleOne}">
+                <StackLayout Orientation="Vertical" BackgroundColor="Bisque">
+                    <Label Text="Hola Mundo" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                    <Button Text="Ingresar"></Button>
+                </StackLayout>
+            </Frame>
+            <Image Source="{components:ImageResource Visual.Images.producto_46.jpeg}" Style="{StaticResource ImageStyleOne}"></Image>
+            <Image Source="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fsoccer%2F500%2F83.png"></Image>
+            <ImageButton Source="{components:ImageResource Visual.Images.Add.png}" Style="{StaticResource ImageButtonStyleOne}"></ImageButton>
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="Gainsboro" HorizontalOptions="CenterAndExpand">
+
+            </StackLayout>-->
+            <ScrollView>
+                <StackLayout Margin="0,40" BackgroundColor="Gainsboro">
+                    <StackLayout Style="{StaticResource WrapperTitulo}">
+                        <Label Text="Registro" Style="{StaticResource LabelStyleOne}"></Label>
+                        <BoxView Style="{StaticResource BoxStyleOne}"></BoxView>
+                    </StackLayout>
+                    <StackLayout>
+                        <Image Source="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fsoccer%2F500%2F83.png"></Image>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding InfoCommand}" NumberOfTapsRequired="1"/>
+                            <!--<SwipeGestureRecognizer Command="{Binding InfoCommand}"></SwipeGestureRecognizer>-->
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <components:CustomEntry Placeholder="Escriba su nombre"></components:CustomEntry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly">
+                        <Label Text="Usuario" Style="{StaticResource LabelStyleFour}"></Label>
+                        <Entry Placeholder="Escriba su nombre" TextColor="Yellow"></Entry>
+                    </FlexLayout>
+                </StackLayout>
+            </ScrollView>
+            <Button Text="Ingresar" Style="{StaticResource ButtonStyleOne}" Command="{Binding BackCommand}"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
+
+    
