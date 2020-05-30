@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "928163597606",
+    "firebase_url": "https://moviles20201-530dd.firebaseio.com",
+    "project_id": "moviles20201-530dd",
+    "storage_bucket": "moviles20201-530dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928163597606:android:8da3ff4661253bcb2205e7",
+        "android_client_info": {
+          "package_name": "com.companyname.appgestiontiendas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928163597606-hh80gqanrv921kq8hqaq9d3ts9vgqjqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.appgestiontiendas",
+            "certificate_hash": "1e671e61f127da8b18b4bb43fff8bef657af54f2"
+          }
+        },
+        {
+          "client_id": "928163597606-acbaagn6de6ajmumlj52qmhjtj2b5kdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ2mZpzjQVyLeUF5kE2s4PnjGvhWlJT_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928163597606-acbaagn6de6ajmumlj52qmhjtj2b5kdm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
