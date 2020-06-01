@@ -21,6 +21,8 @@ namespace AppGestionTiendas.Droid
             base.OnCreate(savedInstanceState);
             GoogleClientManager.Initialize(this);
 
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

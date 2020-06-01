@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppGestionTiendas.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace AppGestionTiendas
         {
             InitializeComponent();
 
-            MainPage = new LoginView();
+            MainPage = new NavigationPage(new CategoryView());
         }
 
         protected override void OnStart()

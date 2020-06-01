@@ -8,10 +8,10 @@ namespace AppGestionTiendas.Models
         #region Properties
 
         [JsonProperty("idCategoria")]
-        public long IdCategoria { get; set; }
+        public long idCategoria;
 
         [JsonProperty("categoria")]
-        public string Categoria { get; set; }
+        private string categoria;
 
         [JsonIgnore]
         public QRModel QR { get; set; }
@@ -22,7 +22,24 @@ namespace AppGestionTiendas.Models
         #endregion Initialize
 
         #region Getters & Setters
-
+        public long IdCategoria
+        {
+            get { return idCategoria; }
+            set
+            {
+                idCategoria = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Categoria
+        {
+            get { return categoria; }
+            set
+            {
+                categoria = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion Getters & Setters
     }
 }
