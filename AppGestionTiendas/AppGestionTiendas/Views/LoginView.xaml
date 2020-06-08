@@ -8,7 +8,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding NombrePersona}" />
-            <Button Text="Inicio Sesion" Command="{Binding InicioSesion}"></Button>
+            <Button Text="Inicio Sesion Google" Command="{Binding InicioSesion}"></Button>
+            <Button Text="Inicio Sesion Normal" Command="{Binding InicioSesionNormal}"></Button>
+            <Label Text="{Binding ContarLogin}"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

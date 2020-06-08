@@ -1,3 +1,4 @@
+using AppGestionTiendas.Servicios.Navigation;
 using AppGestionTiendas.Views;
 using Plugin.FirebasePushNotification;
 using System;
@@ -8,11 +9,30 @@ namespace AppGestionTiendas
 {
     public partial class App : Application
     {
+        #region Properties
+        static NavigationService navigationService;
+        #endregion
+
+        #region Getters & Setters
+        public static NavigationService NavigationService
+        {
+            get
+            {
+                if (navigationService == null)
+                {
+                    navigationService = new NavigationService();
+                }
+                return navigationService;
+            }
+        }
+        #endregion Getters & Setters
+
+
+
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new CategoryView());
+            MainPage = new NavigationPage(new LoginView());
         }
 
         protected override void OnStart()

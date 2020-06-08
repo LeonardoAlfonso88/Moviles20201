@@ -17,15 +17,15 @@ using Xamarin.Forms;
 
 namespace AppGestionTiendas.ViewModels
 {
-    public class CategoryViewModel : NotificationObject
+    public class CategoryViewModel : ViewModelBase
     {
         #region Properties
 
         #region Attributes
         public ValidatableObject<string> BusquedaCategoria { get; set; }  //Campo de Busqueda
-        public ValidatableObject<string> NombreCategoria { get; set; }  
+        public ValidatableObject<string> NombreCategoria { get; set; }
 
-        private CategoriaModel categoria;
+        private CategoriaModel categoria; 
 
         public MessageViewPop PopUp { get; set; }
 
@@ -179,18 +179,25 @@ namespace AppGestionTiendas.ViewModels
 
         public async Task ListaCategorias()
         {
-            APIResponse response = await GetCategorias.EjecutarEstrategia(null);
-            if(response.IsSuccess)
-            {
-                List<CategoriaModel> listaCategorias = JsonConvert.DeserializeObject<List<CategoriaModel>>(response.Response);
-                Categorias = new ObservableCollection<CategoriaModel>(listaCategorias);
-            }
-            else
-            {
-                ((MessageViewModel)PopUp.BindingContext).Message = "Error al cargar las categorías";
-                await PopupNavigation.Instance.PushAsync(PopUp);
-            }
-            
+            //var navigationStack = App.Current.MainPage.Navigation.NavigationStack;
+            //var x = 1;
+            //APIResponse response = await GetCategorias.EjecutarEstrategia(null);
+            //if(response.IsSuccess)
+            //{
+            //    List<CategoriaModel> listaCategorias = JsonConvert.DeserializeObject<List<CategoriaModel>>(response.Response);
+            //    Categorias = new ObservableCollection<CategoriaModel>(listaCategorias);
+            //}
+            //else
+            //{
+            //    ((MessageViewModel)PopUp.BindingContext).Message = "Error al cargar las categorías";
+            //    await PopupNavigation.Instance.PushAsync(PopUp);
+            //}
+            //await NavigationService.RemovePreviousPage();
+            //var navigationStack2 = App.Current.MainPage.Navigation.NavigationStack;
+            //var y = 3;
+            LoginViewModel LoginViewModel = (LoginViewModel)NavigationService.PreviousViewModel;
+            LoginViewModel.ContarLogin += 1;
+            await NavigationService.PopPage();
         }
 
         #region Methods
